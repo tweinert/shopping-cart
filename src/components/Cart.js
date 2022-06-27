@@ -1,7 +1,8 @@
+import React from "react";
 import { ProSidebar, Menu, MenuItem, SubMenu, SidebarHeader } from "react-pro-sidebar";
 import "react-pro-sidebar/dist/css/styles.css";
 
-function Cart() {
+function Cart(props) {
   /*
   use props to send in each item
   for each item, create (sub)menu with name and menuitem with quantity
