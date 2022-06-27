@@ -7,6 +7,10 @@ import products from "../products";
 function Shop() {
   const [currentCart, setCurrentCart] = useState({});
 
+  function handleAddItem(id, qty) {
+    console.log(id + " " + qty);
+  }
+
   return (
     <div className="shop">
       <div className="header">
@@ -14,7 +18,7 @@ function Shop() {
       </div>
       <Cart />
       <div className="item-container">
-        {products.map((product) => <ShopItem key={product.id} {...product} />)}
+        {products.map((product) => <ShopItem key={product.id} {...product} handleAddItem={handleAddItem} />)}
       </div>
     </div>
   );
