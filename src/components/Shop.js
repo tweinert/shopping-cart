@@ -8,11 +8,12 @@ function Shop() {
   const [currentCart, setCurrentCart] = useState([]);
 
   function handleAddItem(id, qty) {
-    console.log(id + " " + qty);
-    // add product object to currentCart using id
-    let product = products.find(product => product.id === id);
+    let ref = products.find(product => product.id === id);
+    let product = JSON.parse(JSON.stringify(ref));
     product.qty = qty;
     setCurrentCart(oldCart => [...oldCart, product]);
+    // if item already in cart, add to it
+    
   }
 
   return (
