@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { ProSidebar, Menu, MenuItem, SubMenu, SidebarHeader } from "react-pro-sidebar";
 import "react-pro-sidebar/dist/css/styles.css";
 
@@ -8,6 +8,10 @@ function Cart(props) {
   for each item, create (sub)menu with name and menuitem with quantity
   */
 
+  useEffect(() => {
+    console.log(props.cartItems);
+  });
+
  return (
    <div className="sidebar">
     <ProSidebar>
@@ -15,7 +19,7 @@ function Cart(props) {
         Shopping Cart
       </SidebarHeader>
       <Menu>
-        <MenuItem>Dashboard</MenuItem>
+        <MenuItem>Item: {props.cartItems.toString()}</MenuItem>
         <SubMenu title="Components">
           <MenuItem>Comp 1</MenuItem>
           <MenuItem>Comp 2</MenuItem>
