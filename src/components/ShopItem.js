@@ -7,7 +7,7 @@ function ShopItem(props) {
     <div className="item">
       <h3>{props.itemName}</h3>
       <p>${props.price}</p>
-      <input type="text" value={qtyValue} onChange={evt => setQtyValue(evt.target.value)}/>
+      <input type="number" value={qtyValue} onChange={evt => setQtyValue(evt.target.value)}/>
       <button onClick={() => {props.handleAddItem(props.id, Number(qtyValue))}}>Add to Cart</button>
     </div>
   );
