@@ -11,9 +11,25 @@ function Shop() {
     let ref = products.find(product => product.id === id);
     let product = JSON.parse(JSON.stringify(ref));
     product.qty = qty;
-    setCurrentCart(oldCart => [...oldCart, product]);
-    // if item already in cart, add to it
-    
+
+    let isDuplicate = false;
+
+    // check for duplicates
+    const newCart = currentCart.map(obj => {
+      if (obj.id === id) {
+        isDuplicate = true;
+        let newQty = obj.qty + qty;
+        return {...obj, qty: newQty};
+      }
+
+      return obj
+    });
+
+    if (!isDuplicate) {
+      setCurrentCart(oldCart => [...oldCart, product]);
+    } else {
+      setCurrentCart(newCart);
+    }
   }
 
   return (

@@ -19,15 +19,13 @@ function Cart(props) {
         Shopping Cart
       </SidebarHeader>
       <Menu>
-        <MenuItem>Item: {props.cartItems.toString()}</MenuItem>
-        <SubMenu title="Components">
-          <MenuItem>Comp 1</MenuItem>
-          <MenuItem>Comp 2</MenuItem>
-        </SubMenu>
+        {props.cartItems.map((product) => (
+          <MenuItem key={product.id}>{product.itemName}: {product.qty}</MenuItem>
+        ))}
       </Menu>
     </ProSidebar>
    </div>
  );
 }
-
+// {products.map((product) => <ShopItem key={product.id} {...product} handleAddItem={handleAddItem} />)}
 export default Cart;
